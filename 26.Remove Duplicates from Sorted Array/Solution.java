@@ -17,3 +17,13 @@ class Solution {
         return len;
     }
 }
+
+
+/*
+Runtime: 11 ms, faster than 6.70% of Java online submissions for Remove Duplicates from Sorted Array.
+Memory Usage: 41.6 MB, less than 5.96% of Java online submissions for Remove Duplicates from Sorted Array.
+
+Have to improve
+Discussions on Leetcode talk about two pointer technique, which should have a significant impact on memory usage and 
+will definately decrease the runtime.
+*/
