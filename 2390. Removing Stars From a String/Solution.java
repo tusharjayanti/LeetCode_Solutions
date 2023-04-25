@@ -19,7 +19,6 @@ class Solution {
         while (!stack.isEmpty()) {
             result.append(stack.pop());
         }
-        System.out.println(result.toString());
         return result.reverse().toString();
     }
 
