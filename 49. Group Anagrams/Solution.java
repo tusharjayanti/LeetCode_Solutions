@@ -2,32 +2,31 @@
 //  github: https://github.com/tusharjayanti
 // LinkedIn: https://www.linkedin.com/in/tusharjayanti/
 
+/*
+ n - > number of elements in strs
+ m - > maximum length of a string in strs
+ Time Complexity : O( n * m.log(m) )
+ Space complexity : O(n.m)
+ */
 import java.util.*;
 
 class Solution {
 
-    // private static final List<List<String>> test0_result = new ArrayList<ArrayList<String>>();
-       private static final List<List<String>> test0_result = new ArrayList<List<String>>();
-
-
     public List<List<String>> groupAnagrams(String[] strs) {
-        return pointsList;
-    }
 
-    // O(x)
-    public static boolean checkAnagrams(String a, String b) {
-        int sum = 0;
-        for (char c : a.toCharArray()) {
-            sum += c - 'a';
+        Map<String, List<String>> anagrams = new HashMap<>();
+        for (String word : strs) {
+            char[] charArray = word.toCharArray();
+            Arrays.sort(charArray);
+            String key = String.valueOf(charArray);
+            if (!anagrams.containsKey(key)) {
+                anagrams.put(key, new ArrayList<>());
+            }
+
+            anagrams.get(key).add(word);
         }
-        for (char c : b.toCharArray()) {
-            sum -= c - 'a';
-        }
-        return sum == 0;
+
+        return new ArrayList<>(anagrams.values());
     }
 
-    public static void main(String[] args) {
-        System.out.println(checkAnagrams("eat", "ate"));
-
-    }
 }
