@@ -12,10 +12,6 @@ class Solution {
                 stack.push(c);
             }
         }
-        for (char c : stack) {
-            System.out.print(c + " ");
-        }
-        System.out.println();
         while (!stack.isEmpty()) {
             result.append(stack.pop());
         }

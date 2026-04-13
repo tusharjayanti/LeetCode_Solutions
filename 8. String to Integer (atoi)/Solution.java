@@ -32,7 +32,7 @@ class Solution {
     }
 
     public static boolean test6() {
-        return myAtoi("+-12")==0;
+        return myAtoi("+-12") == 0;
     }
 
     public static int myAtoi(String s) {

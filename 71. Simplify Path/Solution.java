@@ -12,37 +12,36 @@ class Solution {
     final static String test2_result = "/home/foo";
     final static String test3_result = "/c";
     final static String test4_result = "/a/b/c";
-    
+
     public static String simplifyPath(String path) {
         final String dp = "..";
-        String[] input = path.split("/",0);
+        String[] input = path.split("/", 0);
         StringBuilder result = new StringBuilder();
-        HashSet<String> skip = new HashSet<>(Arrays.asList("",".",".."));
+        HashSet<String> skip = new HashSet<>(Arrays.asList("", ".", ".."));
         Stack<String> stack = new Stack<>();
 
 
-        for(String s : input) {
-            if(s.equals(dp) && !stack.empty()) {
+        for (String s : input) {
+            if (s.equals(dp) && !stack.empty()) {
                 stack.pop();
-            } else if(!skip.contains(s)) {
+            } else if (!skip.contains(s)) {
                 stack.push(s);
-            }      
-      
+            }
+
         }
 
-           Collections.reverse(stack);
+        Collections.reverse(stack);
 
-        if(stack.empty()) {
+        if (stack.empty()) {
             return "/";
         }
-        while(!stack.empty()) {
-            result.append("/"+stack.pop());
-        }
-                
-                return result.toString();
+        while (!stack.empty()) {
+            result.append("/" + stack.pop());
         }
 
-    
+        return result.toString();
+    }
+
 
     public static boolean test0() {
 
@@ -63,11 +62,10 @@ class Solution {
         return (simplifyPath("/a/./b/../../c/").equals(test3_result));
     }
 
-        public static boolean test4() {
+    public static boolean test4() {
         return (simplifyPath("/a//b////c/d//././/..").equals(test4_result));
     }
 
-    
 
     public static void main(String[] args) {
         System.out.println(test0());

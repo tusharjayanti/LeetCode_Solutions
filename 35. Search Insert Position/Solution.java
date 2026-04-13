@@ -12,19 +12,19 @@ You must write an algorithm with O(log n) runtime complexity.
 class Solution {
 
     public static boolean test0() {
-        return (searchInsert(new int[]{1,3,5,6},5)==2);
+        return (searchInsert(new int[]{1, 3, 5, 6}, 5) == 2);
     }
 
     public static boolean test1() {
-        return (searchInsert(new int[]{1,3,5,6},2)==1);
+        return (searchInsert(new int[]{1, 3, 5, 6}, 2) == 1);
     }
 
     public static boolean test2() {
-        return (searchInsert(new int[]{1,3,5,6},7)==4);
+        return (searchInsert(new int[]{1, 3, 5, 6}, 7) == 4);
     }
 
     public static boolean test3() {
-        return (searchInsert(new int[]{1,3,5,7},6)==3);
+        return (searchInsert(new int[]{1, 3, 5, 7}, 6) == 3);
     }
 
     // Linear(O(n)) solution does not meet target runtime of O(log(n))
@@ -42,13 +42,13 @@ class Solution {
 
     // O(log(n))
     public static int searchInsert(int[] nums, int target) {
-        int l = 0, r = nums.length-1;
+        int l = 0, r = nums.length - 1;
         int mid = 0;
-        while(l <= r) {
-            mid = l + (r-l)/2;
-            if(nums[mid] == target) {
+        while (l <= r) {
+            mid = l + (r - l) / 2;
+            if (nums[mid] == target) {
                 return mid;
-            } else if(nums[mid]>target) {
+            } else if (nums[mid] > target) {
                 r = mid - 1;
             } else {
                 l = mid + 1;
